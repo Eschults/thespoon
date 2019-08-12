@@ -1,0 +1,18 @@
+<h1>Index des restaurants</h1>
+
+<p>Today is <%= Time.now %></p>
+
+<form action="/restaurants" method="get">
+  <input type="text" name="category" placeholder="Search type" value="<%= params[:category] %>">
+  <input type="submit">
+</form>
+
+<ul>
+  <% @restaurants.each do |id, restaurant| %>
+
+    <li>
+      <!-- <a href="/restaurants/<%# id %>"><%# restaurant[:name] %></a> -->
+      <%= link_to restaurant[:name], restaurant_path(id: id) %>
+    </li>
+  <% end %>
+</ul>
